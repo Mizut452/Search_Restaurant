@@ -12,8 +12,11 @@
   <div class="container">
       <%= form_with url: home_index_path, method: "get", local: true do |f| %>
       <br>
-      <%= f.hidden_field :latitudeValue, id: "latitudeValue", class: "geolocation_form" %><br>
-      <%= f.hidden_field :longitudeValue, id: "longitudeValue", class: "geolocation_form" %>
+      <%= f.text_field :lat, id: "latitudeValue", class: "geolocation_form" %><br>
+      <%= f.text_field :lng, id: "longitudeValue", class: "geolocation_form" %>
+      <%= f.select :range, [['半径300m付近', 1], ['半径500m付近', 1], ['半径1000m付近', 1]] %>
+
+      <%= f.submit "検索" %>
     <% end %>
   </div>
     <%= yield %>
