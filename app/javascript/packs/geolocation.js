@@ -3,6 +3,7 @@ if (navigator.geolocation)
     navigator.geolocation.getCurrentPosition(
 
         function( position ) {
+            alert ("位置情報サービスを利用します。")
             //緯度の取得
             const latitudeValue = position.coords.latitude;
             //経度の取得
@@ -12,7 +13,6 @@ if (navigator.geolocation)
             document.getElementById("longitudeValue").value = longitudeValue;
         }
     )
-    alert ("位置情報サービスを利用できます。")
 }
 
 else {

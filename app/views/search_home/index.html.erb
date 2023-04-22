@@ -10,9 +10,11 @@
 
     <body>
   <div class="container">
-  <script>
-    
-</script>
+      <%= form_with url: home_index_path, method: "get", local: true do |f| %>
+      <br>
+      <%= f.hidden_field :latitudeValue, id: "latitudeValue", class: "geolocation_form" %><br>
+      <%= f.hidden_field :longitudeValue, id: "longitudeValue", class: "geolocation_form" %>
+    <% end %>
   </div>
     <%= yield %>
   </body>
