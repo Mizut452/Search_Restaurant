@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<%= javascript_include_tag 'packs/geolocation' %>
     <head>
         <title>レストラン探します</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,10 +10,9 @@
 
     <body>
   <div class="container">
-  
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :poke_code, class: "search_form", placeholder: "ポケモンの名前を入力してください" %>
-    <% end %>
+  <script>
+    
+</script>
   </div>
     <%= yield %>
   </body>
