@@ -3,9 +3,8 @@ class SearchController < ApplicationController
   def search
     require 'rexml/document'
 
-    
+    raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=de7e8ea5ccd50a30&lat=#{params[:lat]}&lng=#{params[:lng]}&range=#{params[:range]}"
 
-    raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=" + API_KEY + "&large_area=Z011"
     @result = REXML::Document.new(raw_response.body)
   end
 end
