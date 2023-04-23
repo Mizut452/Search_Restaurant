@@ -1,5 +1,5 @@
 class SearchHomeController < ApplicationController
-    def method_name
-        
-    end
+    def search
+        @data = 'nani'
+     end
 end

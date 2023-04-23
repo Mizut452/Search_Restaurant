@@ -1,0 +1,2 @@
+class ApiCallsController < ApplicationController
+end
