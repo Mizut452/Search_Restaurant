@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   get 'search/search'
-  get '/', to: "search_home#application"
-  get 'search', to: "search_home#result"
+  get '/', to: "search#application"
+  get 'search', to: "search#search"
 end

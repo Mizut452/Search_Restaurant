@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%= javascript_include_tag 'packs/geolocation' %>
+  <head>
+    <title>レストラン探します</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <div class="container">
+  <%#localをtrueにすることによって非同期処理でなくしている %>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :lat, id: "latitudeValue", class: "geolocation_form" %><br>
+      <%= f.text_field :lng, id: "longitudeValue", class: "geolocation_form" %>
+      <%= f.select :range, [['半径300m付近', 1], ['半径500m付近', 2], ['半径1000m付近', 3]] %>
+      <%= f.submit "検索"%>
+    <% end %>
+  </div>
+    <%= yield %>
+  </body>
+</html>
