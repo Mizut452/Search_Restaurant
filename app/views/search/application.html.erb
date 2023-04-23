@@ -14,6 +14,8 @@
   <div class="container">
   <%#localをtrueにすることによって非同期処理でなくしている %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%#フォームの作成、位置情報をJavaScriptから受け取り、フォームで送信する仕組みにしている。 %>
+      
       <%= f.text_field :lat, id: "latitudeValue", class: "geolocation_form" %><br>
       <%= f.text_field :lng, id: "longitudeValue", class: "geolocation_form" %>
       <%= f.select :range, [['半径300m付近', 1], ['半径500m付近', 2], ['半径1000m付近', 3]] %>
