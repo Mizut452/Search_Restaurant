@@ -9,15 +9,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="container">
-      <% if @results.present? %>
-        <% @results.each do |d| %>
-          <div>
-            <h2><%= d[:name] %></h2>
-            <p><%= d[:access] %></p>
+<body>
+  <div class="container">
+  <% if @result %>
+    <div>
+      <h2><%= @result[:name] %></h2>
+    </div>
     <% end %>
-    </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
