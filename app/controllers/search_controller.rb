@@ -9,13 +9,17 @@ class SearchController < ApplicationController
     
     data = Hash.from_xml(doc.to_s)
 
-    #ハッシュ化されたデータから表示したいデータを抽出し、配列に入れる。
+    #ハッシュにされたデータから表示したいデータを抽出し、配列に入れる。
     @results = []
     data['results']['shop'].each do |d|
       @results << {
+        id: d['id'],
         name: d['name'],
-        access: d['access']
+        access: d['access'],
+        logo: d['logo_image'],
+        open: d['open']
       }
   end
+
 end
 end

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <%= javascript_include_tag 'packs/geolocation' %>
   <head>
     <title>レストラン探します</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,31 +11,13 @@
   </head>
 
   <body>
-  <div class="container">
-    <% @results.each do |d| %>
+    <div class="container">
+        <% @results.each do |d| %>
      <div>
         <h2><%= d[:name] %></h2>
         <p><%= d[:access] %></p>
      </div>
     <% end %>
-  </div>
-
-  <table border="1">
-    <thead>
-      <tr>
-        <th>店名</th>
-        <th>アクセス</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @results.each do |d| %>
-        <tr>
-          <td><%= link_to d[:name], search_detail_path(id: d[:id]) %></td>
-          <td><%= d[:access] %></td>
-        </tr>
-        <% end %>
-    </tbody>
-  </table>
+    </div>
   </body>
 </html>
