@@ -2,13 +2,15 @@ class SearchController < ApplicationController
   API_KEY = 'de7e8ea5ccd50a30'
   def search
     require 'nokogiri'
-
+    begin
     raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=de7e8ea5ccd50a30&lat=#{params[:lat]}&lng=#{params[:lng]}&range=#{params[:range]}"
     #nokogiriによってXMLデータをRubyのハッシュ化させる
+    if raw_response.success?
     doc = Nokogiri::XML(raw_response.body)
     data = Hash.from_xml(doc.to_s)
 
     #ハッシュにされたデータから表示したいデータを抽出し、配列に入れる。
+    
     @results = []
     data['results']['shop'].each do |d|
       @results << {
@@ -18,15 +20,24 @@ class SearchController < ApplicationController
         logo: d['logo_image'],
         open: d['open']
       }
+    end
+
+    #店が見つからなかった場合、またはほかのエラーが発生した場合、エラーページへ飛ぶ。
+    else
+      render 'search/error' 
+    end
+  rescue Faraday::ConnectionFailed => e
+      render 'search/error'
+    rescue => e
+      render 'search/error'
   end
+
 
   def result
         # ここで詳細ページに表示するデータを準備する
         raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=de7e8ea5ccd50a30&id=#{params[:id]}"
         doc = Nokogiri::XML(raw_response.body)
         data = Hash.from_xml(doc.to_s)
-
-       
 
         @result = {
           id: data['results']['shop']['id'],
