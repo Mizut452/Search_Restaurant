@@ -10,14 +10,16 @@
   </head>
 
 <body>
-  <div class="container">
+  <main>
   <% if @result %>
-    <div>
-      <h2><%= @result[:name] %></h2>
-      <p><%= @result[:open] %></p>
+    <div class="container">
       <%= image_tag @result[:logo] %>
+      <span class="shop_name"><b><%= @result[:name] %></b></span>
+      <span class="shop_access">＜アクセス＞<%= @result[:access] %></span>
+      <span class="shop_genre">＜ジャンル＞<%= @result[:genre] %></span>
+      <span class="shop_open">【営業時間】<%= @result[:open] %></span>
     </div>
     <% end %>
-  </div>
+  </main>
 </body>
 </html>

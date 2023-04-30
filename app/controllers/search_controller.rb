@@ -17,6 +17,7 @@ class SearchController < ApplicationController
         id: d['id'],
         name: d['name'],
         access: d['access'],
+        genre: d['genre']['name'],
         logo: d['logo_image'],
         open: d['open']
       }
@@ -44,6 +45,7 @@ class SearchController < ApplicationController
           name: data['results']['shop']['name'],
           access: data['results']['shop']['access'],
           logo: data['results']['shop']['logo_image'],
+          genre: data['results']['shop']['genre']['name'],
           open: data['results']['shop']['open']
         }
       end

@@ -6,18 +6,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'restaurant-list' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <script>
   <div class="container">
     <% @results.each do |d| %>
-     <div>
-        <h2><%= d[:name] %></h2>
-        <p><%= d[:access] %></p>
-     </div>
+      <span class="shop_logo"><%= image_tag d[:logo] %></div>
+      <span class="shop_name"><b><%= d[:name] %></b></span>
+      <span class="shop_access">＜アクセス＞<%= d[:access] %></span>
+      <span class="shop_genre">＜ジャンル＞<%= d[:genre] %></span>
+      <span class="shop_open">【営業時間】<%= d[:open] %></span>
     <% end %>
   </div>
+  </script>
 
   <table border="1">
     <thead>
