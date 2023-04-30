@@ -11,17 +11,15 @@
   </head>
 
   <body>
-  <script>
-  <div class="container">
     <% @results.each do |d| %>
-      <span class="shop_logo"><%= image_tag d[:logo] %></div>
+    <div class="container">
       <span class="shop_name"><b><%= d[:name] %></b></span>
       <span class="shop_access">＜アクセス＞<%= d[:access] %></span>
       <span class="shop_genre">＜ジャンル＞<%= d[:genre] %></span>
       <span class="shop_open">【営業時間】<%= d[:open] %></span>
-    <% end %>
+      <span class="shop_logo"><%= image_tag d[:logo] %></div>
   </div>
-  </script>
+  <% end %>
 
   <table border="1">
     <thead>
