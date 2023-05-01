@@ -1,5 +1,10 @@
 class SearchController < ApplicationController
   API_KEY = 'de7e8ea5ccd50a30'
+  
+  def search_window
+    render layout: "search_window"
+  end
+
   def search
     require 'nokogiri'
     begin

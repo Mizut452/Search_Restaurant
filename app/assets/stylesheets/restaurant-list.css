@@ -12,7 +12,8 @@
 
 .shop_name {
     grid-column: 2 / 4;
-    grid-row: 1;  
+    grid-row: 1;
+    position: relative;
 }
 
 .shop_access {

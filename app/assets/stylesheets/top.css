@@ -1,3 +1,7 @@
 .images {
-    size: 10%;
+    size: 100px;
+}
+
+.search_window {
+    color: brown;
 }

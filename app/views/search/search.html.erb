@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'restaurant-list' %>
     <%= javascript_importmap_tags %>
   </head>
@@ -13,31 +12,12 @@
   <body>
     <% @results.each do |d| %>
     <div class="container">
-      <span class="shop_name"><b><%= d[:name] %></b></span>
+      <span class="shop_name"><b><%= link_to d[:name], search_result_path(id: d[:id]) %></b></span>
       <span class="shop_access">＜アクセス＞<%= d[:access] %></span>
       <span class="shop_genre">＜ジャンル＞<%= d[:genre] %></span>
       <span class="shop_open">【営業時間】<%= d[:open] %></span>
       <span class="shop_logo"><%= image_tag d[:logo] %></div>
   </div>
   <% end %>
-
-  <table border="1">
-    <thead>
-      <tr>
-        <th>店名</th>
-        <th>アクセス</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @results.each do |d| %>
-        <tr>
-          <td><%= link_to d[:name], search_result_path(id: d[:id]) %></td>
-          <td><%= d[:access] %></td>
-          <td><%= d[:open] %></td>
-        </tr>
-        <% end %>
-    </tbody>
-  </table>
   </body>
 </html>

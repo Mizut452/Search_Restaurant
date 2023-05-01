@@ -11,8 +11,8 @@
   </head>
 
   <body>
-  <%= image_tag "logo.png", class: 'images' %>
-  <div class="container">
+  <%= image_tag "logo.png", class: "images" %>
+  <div class="search_window">
   <%#localをtrueにすることによって非同期処理でなくしている %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <%#フォームの作成、位置情報をJavaScriptから受け取り、フォームで送信する仕組みにしている。 %>
