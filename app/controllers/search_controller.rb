@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  require 'kaminari'
   API_KEY = 'de7e8ea5ccd50a30'
   
   def search_window
@@ -27,6 +28,8 @@ class SearchController < ApplicationController
         open: d['open']
       }
     end
+
+    @posts = Kaminari.paginate_array(@results).page(params[:page] || 1).per(5)
 
     #店が見つからなかった場合、またはほかのエラーが発生した場合、エラーページへ飛ぶ。
     else

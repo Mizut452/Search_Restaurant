@@ -19,7 +19,6 @@
       
       <%= f.text_field :lat, id: "latitudeValue", class: "geolocation_form" %><br>
       <%= f.text_field :lng, id: "longitudeValue", class: "geolocation_form" %>
-      <%= f.text_field %>
       <%= f.select :range, [['半径300m付近', 1], ['半径500m付近', 2], ['半径1km付近', 3], ['半径2km付近', 4]] %>
       <%= f.submit "検索"%>
     <% end %>

@@ -10,14 +10,15 @@
   </head>
 
   <body>
-    <% @results.each do |d| %>
+  <%= paginate @posts %>
+    <% @posts.each do |d| %>
     <div class="container">
       <span class="shop_name"><b><%= link_to d[:name], search_result_path(id: d[:id]) %></b></span>
       <span class="shop_access">＜アクセス＞<%= d[:access] %></span>
       <span class="shop_genre">＜ジャンル＞<%= d[:genre] %></span>
       <span class="shop_open">【営業時間】<%= d[:open] %></span>
-      <span class="shop_logo"><%= image_tag d[:logo] %></div>
-  </div>
+      <span class="shop_logo"><%= image_tag d[:logo] %>
+    </div>
   <% end %>
   </body>
 </html>
