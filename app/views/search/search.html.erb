@@ -10,7 +10,6 @@
   </head>
 
   <body>
-  <%= paginate @posts %>
     <% @posts.each do |d| %>
     <div class="container">
       <span class="shop_name"><b><%= link_to d[:name], search_result_path(id: d[:id]) %></b></span>
@@ -20,5 +19,6 @@
       <span class="shop_logo"><%= image_tag d[:logo] %>
     </div>
   <% end %>
+  <%= paginate @posts %>
   </body>
 </html>
