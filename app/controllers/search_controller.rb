@@ -8,8 +8,11 @@ class SearchController < ApplicationController
 
   def search
     require 'nokogiri'
+    require 'uri'
+
+    keyword = URI.encode_www_form_component(params[:keyword])
     begin
-    raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=de7e8ea5ccd50a30&lat=#{params[:lat]}&lng=#{params[:lng]}&range=#{params[:range]}"
+    raw_response = Faraday.get "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=de7e8ea5ccd50a30&lat=#{params[:lat]}&lng=#{params[:lng]}&range=#{params[:range]}&keyword=#{keyword}&count=20"
     #nokogiriによってXMLデータをRubyのハッシュ化させる
     if raw_response.success?
     doc = Nokogiri::XML(raw_response.body)
