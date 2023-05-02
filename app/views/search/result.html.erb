@@ -11,7 +11,9 @@
       </div>
 
       <div id="photo-access-content">
-        <span id="shop_photo"><%= image_tag @result[:photo] %></span><span id="shop_access">＜アクセス＞<%= @result[:access] %></span>
+        <span id="shop_photo"><%= image_tag @result[:photo] %></span><br>
+        <span id="shop_access">＜アクセス＞<%= @result[:access] %></span><br>
+        ＜住所＞<span id="shop_address"><%= @result[:address] %></span>
       </div>
     </div>
   <% end %>

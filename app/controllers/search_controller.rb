@@ -59,7 +59,8 @@ class SearchController < ApplicationController
           genre: data['results']['shop']['genre']['name'],
           open: data['results']['shop']['open'],
           catch: data['results']['shop']['genre']['catch'],
-          photo: data['results']['shop']['photo']['pc']['l']
+          photo: data['results']['shop']['photo']['pc']['l'],
+          address: data['results']['shop']['address']
         }
       end
     end
