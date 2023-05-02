@@ -1,7 +1,12 @@
 .images {
-    size: 100px;
+    width: 100%;
 }
 
 .search_window {
     color: brown;
+}
+
+.logo {
+    width: 250px;
+    height: 100px;
 }
