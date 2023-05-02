@@ -59,7 +59,8 @@ class SearchController < ApplicationController
           open: data['results']['shop']['open'],
           catch: data['results']['shop']['genre']['catch'],
           photo: data['results']['shop']['photo']['pc']['l'],
-          address: data['results']['shop']['address']
+          address: data['results']['shop']['address'],
+          budget_average: data['results']['shop']['budget']['average']
         }
       end
     end
