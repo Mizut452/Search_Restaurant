@@ -55,7 +55,8 @@ class SearchController < ApplicationController
           logo: data['results']['shop']['logo_image'],
           genre: data['results']['shop']['genre']['name'],
           open: data['results']['shop']['open'],
-          photo: data['results']['shop']['photo']['l']
+          catch: data['results']['shop']['genre']['catch'],
+          photo: data['results']['shop']['photo']['pc']['l']
         }
       end
     end

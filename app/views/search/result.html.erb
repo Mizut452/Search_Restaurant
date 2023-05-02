@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>レストラン探します</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<%= stylesheet_link_tag "result" %>
 
-<body>
-  <main>
   <% if @result %>
-    <div class="container">
+    <div id="contents">
+      <div id="shop-detail-content">
       <%= image_tag @result[:logo] %>
-      <span class="shop_name"><b><%= @result[:name] %></b></span>
-      <span class="shop_access">＜アクセス＞<%= @result[:access] %></span>
-      <span class="shop_genre">＜ジャンル＞<%= @result[:genre] %></span>
-      <span class="shop_open">【営業時間】<%= @result[:open] %></span>
+      <span id="shop_name"><b><%= @result[:name] %></b></span><br>
+      <span id="shop_genre">＜ジャンル＞<%= @result[:genre] %></span><br>
+      <span id="shop_catch">＜特徴＞<%= @result[:catch] %></span><br>
+      <span id="shop_open">【営業時間】<%= @result[:open] %></span>
+      </div>
+
+      <div id="photo-access-content">
+        <span id="shop_photo"><%= image_tag @result[:photo] %></span><span id="shop_access">＜アクセス＞<%= @result[:access] %></span>
+      </div>
     </div>
-    <% end %>
-  </main>
-</body>
-</html>
+  <% end %>
