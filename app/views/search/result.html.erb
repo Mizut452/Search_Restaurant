@@ -1,7 +1,10 @@
 <%= stylesheet_link_tag "result" %>
 
+  <%# 詳細画面のアイテム %>
   <% if @result %>
+    <%# コンテンツを二つに分け、レイアウトを作る。%>
     <div id="contents">
+    
       <div id="shop-detail-content">
       <%= image_tag @result[:logo] %>
       <span id="shop_name"><b><%= @result[:name] %></b></span><br>
@@ -10,6 +13,7 @@
       <span id="shop_open">【営業時間】<%= @result[:open] %></span>
       </div>
 
+      <%# 下のコンテンツ %>
       <div id="photo-access-content">
         <span id="shop_photo"><%= image_tag @result[:photo] %></span><br>
         <span id="shop_access">＜アクセス＞<%= @result[:access] %></span><br>

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>レストラン探します</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'restaurant-list' %>
-    <%= javascript_importmap_tags %>
-  </head>
+ <%= stylesheet_link_tag 'restaurant-list' %>
 
-  <body>
+    <%# 検索結果の画面 %>
     <% @posts.each do |d| %>
     <div class="container">
       <span class="shop_name"><b><%= link_to d[:name], search_result_path(id: d[:id]) %></b></span>
@@ -20,5 +11,3 @@
     </div>
   <% end %>
   <%= paginate @posts %>
-  </body>
-</html>

@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
   require 'kaminari'
-  API_KEY = 'de7e8ea5ccd50a30'
   
   def search_window
+    #search_windowは別のレイアウトを使用する。
     render layout: "search_window"
   end
 
@@ -19,7 +19,6 @@ class SearchController < ApplicationController
     data = Hash.from_xml(doc.to_s)
 
     #ハッシュにされたデータから表示したいデータを抽出し、配列に入れる。
-    
     @results = []
     data['results']['shop'].each do |d|
       @results << {
